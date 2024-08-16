@@ -8,7 +8,7 @@
 # --------------------------------------------------------------------------
 # Dependencies: winget (https://github.com/AveGamers/Intune_Winget-Install);
 # --------------------------------------------------------------------------
-$PackageName = "Intune_TeamViewerPackage"
+$PackageName = "Intune_TeamsV2Package"
 $WingetApp = "Microsoft.Teams"
 
 # Check for running as admin
