@@ -44,8 +44,8 @@ $AppInstalled = .\winget.exe list --accept-source-agreements | Where-Object { $_
 if (-not $AppInstalled) {
     # Install TeamViewer Using winget
     Write-Host "-> Installing $PackageName using winget..."
-    Write-Host "-> @winget install $WingetApp --accept-package-agreements --accept-source-agreements --force --dependency-source"
-    .\winget.exe install $WingetApp --accept-package-agreements --accept-source-agreements --force --dependency-source
+    Write-Host "-> @winget install $WingetApp --accept-package-agreements --accept-source-agreements --force"
+    .\winget.exe install $WingetApp --accept-package-agreements --accept-source-agreements --force
     $AppInstalled = .\winget.exe list --accept-source-agreements | Where-Object { $_ -match "$WingetApp" }
     if (-not $AppInstalled) {
         Write-Host "-> $PackageName installation failed. Exiting script."

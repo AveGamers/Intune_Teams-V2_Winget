@@ -17,4 +17,5 @@ if ($NewTeams ) {Write-Host "New Teams found";exit 0}
 else {
     Write-Host "New Teams not found"
     powershell.exe -ExecutionPolicy Bypass -WindowStyle Hidden -File install.ps1
+    exit 1
 }
