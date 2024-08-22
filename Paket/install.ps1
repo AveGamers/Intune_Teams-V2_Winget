@@ -49,13 +49,15 @@ if (-not $AppInstalled) {
     $AppInstalled = .\winget.exe list --accept-source-agreements | Where-Object { $_ -match "$WingetApp" }
     if (-not $AppInstalled) {
         Write-Host "-> $PackageName installation failed. Exiting script."
+        Stop-Transcript
+        exit 1
     } else {
         Write-Host "-> $PackageName has been installed successfully."
+        Stop-Transcript
+        exit 0
     }}
 else {
     Write-Host "-> $PackageName is already installed. Skipping installation."
+    Stop-Transcript
+    exit 0
 }
-
-Write-Host "-> Installation Steps completed successfully."
-
-Stop-Transcript

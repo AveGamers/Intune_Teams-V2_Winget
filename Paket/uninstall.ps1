@@ -24,8 +24,8 @@ if (-not $currentPrincipal.IsInRole($adminRole)) {
 
 write-warning "The script has been started with administrative privileges."
 
-# Start-Transcript -Path "$env:TEMP\IntunePackage\$PackageName\Install.log" -NoClobber -Append
-Start-Transcript -Path "C:\source\IntunePackage\$PackageName\Install.log" -NoClobber -Append
+# Start-Transcript -Path "$env:TEMP\IntunePackage\$PackageName\Uninstall.log" -NoClobber -Append
+Start-Transcript -Path "C:\source\IntunePackage\$PackageName\Uninstall.log" -NoClobber -Append
 
 function Get-WingetDirectory {
     $ResolveWingetPath = Resolve-Path "C:\Program Files\WindowsApps\Microsoft.DesktopAppInstaller_*_x64__8wekyb3d8bbwe\winget.exe"
@@ -40,4 +40,6 @@ function Get-WingetDirectory {
 # uninstall teamviewer
 Get-WingetDirectory
 .\winget.exe uninstall $WingetApp --force --silent
+.\winget.exe uninstall "ARP\Machine\X64\{A7AB73A3-CB10-4AA5-9D38-6AEFFBDE4C91}" --force --silent
 Stop-Transcript
+exit 0
